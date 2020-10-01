@@ -41,22 +41,22 @@ Things you may want to cover:
 
 
 ### Association
-- has_many :item
-- has_many :purchase
+- has_many :items
+- has_many :purchases
 
 ## items テーブル
 
-| Column          | Type       | Options     |
-| ------          | ------     | ----------- |
-| name            | string     | null: false |
-| user            | references | null: false |
-| price           | integer    | null: false |
-| description     | text       | null: false |
-| category        | integer    | null: false |
-| status          | integer    | null: false |
-| delivery_charge | integer    | null: false |
-| area            | integer    | null: false |
-| delivery_date   | integer    | null: false |
+| Column             | Type       | Options     |
+| ------             | ------     | ----------- |
+| name               | string     | null: false |
+| user               | references | null: false,foreign_key: true |
+| price              | integer    | null: false |
+| description        | text       | null: false |
+| category_id        | integer    | null: false |
+| status_id          | integer    | null: false |
+| delivery_charge_id | integer    | null: false |
+| area_id            | integer    | null: false |
+| delivery_date_id   | integer    | null: false |
 
 
 ### Association
