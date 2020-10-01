@@ -79,15 +79,15 @@ Things you may want to cover:
 
 ### address
 
-| Column        | Type       | Options                        |
-| ------        | ---------- | ------------------------------ |
-| postcode      | string     | null: false                    |
-| prefectures   | integer    | null: false                    |
-| city          | string     | null: false                    |
-| block         | string     | null: false                    |
-| building_name | string     |                                |
-| phone_number  | string     | null: false                    |
-| purchase      | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ------           | ---------- | ------------------------------ |
+| postcode         | string     | null: false                    |
+| prefectures_id   | integer    | null: false                    |
+| city             | string     | null: false                    |
+| block            | string     | null: false                    |
+| building_name    | string     |                                |
+| phone_number     | string     | null: false                    |
+| purchase         | references | null: false, foreign_key: true |
 
 ### Assosiation
 
