@@ -41,24 +41,28 @@ Things you may want to cover:
 
 
 ### Association
-- has_one :users, through: item_users
+- has_many :item
 - has_many :purchase
 
 ## items テーブル
 
-| Column     | Type       | Options     |
-| ------     | ------     | ----------- |
-| name       | string     | null: false |
-|user        | references | null: false |
-|price       | integer   | null: false |
-|text        | string     | null: false |
-|detail      | string     | null: false |
-|delivery    | string     | null: false |
+| Column          | Type       | Options     |
+| ------          | ------     | ----------- |
+| name            | string     | null: false |
+| user            | references | null: false |
+| price           | integer    | null: false |
+| text            | string     | null: false |
+| category        | string     | null: false |
+| status          | string     | null: false |
+| delivery_charge | integer    | null: false |
+| area            | string     | null: false |
+| delivery_date   | integer    | null: false |
 
 
 ### Association
 
 - belongs_to :user
+- has_one :purchase
 
 ## purchaseテーブル
 
@@ -71,4 +75,25 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
+- belongs_to :address
+
+### address
+
+| Column        | Type       | Options                        |
+| ------        | ---------- | ------------------------------ |
+| postcode      | string     | null: false                    |
+| prefectures   | string     | null: false                    |
+| city          | string     | null: false                    |
+| block         | string     | null: false                    |
+| building_name | string     | null: false                    |
+| phone_number  | string     | null: false                    |
+| purchase      | references | null: false, foreign_key: true |
+
+### Assosiation
+
+- belongs_to :purchase
+
+
+
+
 
