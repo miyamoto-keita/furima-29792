@@ -36,10 +36,11 @@ Things you may want to cover:
 
 ## items テーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-| price  | string | null: false |
+| Column | Type       | Options     |
+| ------ | ------     | ----------- |
+| name   | string     | null: false |
+| price  | string     | null: false |
+|user_id | references | null: false |
 
 ## comments テーブル
 
