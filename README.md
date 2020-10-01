@@ -28,24 +28,34 @@ Things you may want to cover:
 ## users テーブル
 
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
+| Column     | Type   | Options     |
+| --------   | ------ | ----------- |
+| name       | string | null: false |
+| email      | string | null: false |
+| password   | string | null: false |
+| birth_date | string | null: false |
 
 ## items テーブル
 
-| Column | Type       | Options     |
-| ------ | ------     | ----------- |
-| name   | string     | null: false |
-| price  | string     | null: false |
-|user_id | references | null: false |
+| Column     | Type       | Options     |
+| ------     | ------     | ----------- |
+| name       | string     | null: false |
+| images     | string     | null: false |
+|user_id     | references | null: false |
+| price      | string     | null: false |
+|user_id     | references | null: false |
+|explanation | string     | null: false |
+|detail      | string     | null: false |
+|delivery    | string     | null: false |
 
-## comments テーブル
+
+## purchaseテーブル
 
 | Column        | Type       | Options                        |
 | ------        | ---------- | ------------------------------ |
 | user_id       | references | null: false, foreign_key: true |
 | comment_text  | references | null: false, foreign_key: true |
+| credit        | string     | null: false, foreign_key: true |
+| address       | string     | null: false, foreign_key: true |                                       
+| phone_number  | string     | null: false, foreign_key: true |
 
