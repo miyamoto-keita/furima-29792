@@ -33,7 +33,7 @@ Things you may want to cover:
 | name            | string | null: false |
 | email           | string | null: false |
 | password        | string | null: false |
-| birth_date      | string | null: false |
+| birth_date      | date   | null: false |
 | cust_first_name | string | null: false |
 | cust_last_name  | string | null: false |
 | first_name      | string | null: false |
@@ -42,9 +42,7 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :item_users
-- has_one :users, through: item_users
-- has_one :purchase
+- has_many :purchase
 
 ## items テーブル
 
@@ -60,15 +58,14 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :items
-- has_one :users, through: item_users
-- has_one :purchase
+- belongs_to :user
 
 ## purchaseテーブル
 
 | Column        | Type       | Options                        |
 | ------        | ---------- | ------------------------------ |
-| user_id       | references | null: false, foreign_key: true |                       
+| user          | references | null: false, foreign_key: true |    
+| item          | references | null: false, foreign_key: true |                   
 
 ### Association
 
