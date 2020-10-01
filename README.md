@@ -36,13 +36,15 @@ Things you may want to cover:
 | birth_date      | string | null: false |
 | cust_first_name | string | null: false |
 | cust_last_name  | string | null: false |
+| first_name      | string | null: false |
+| last_name       | string | null: false |
 
 
 ### Association
 
-- has_many :item_users
-- has_many :users, through: item_users
-- has_many :purchase
+- has_one :item_users
+- has_one :users, through: item_users
+- has_one :purchase
 
 ## items テーブル
 
@@ -50,7 +52,7 @@ Things you may want to cover:
 | ------     | ------     | ----------- |
 | name       | string     | null: false |
 |user        | references | null: false |
-|integer     | string     | null: false |
+|price       | intebger   | null: false |
 |text        | string     | null: false |
 |detail      | string     | null: false |
 |delivery    | string     | null: false |
@@ -58,17 +60,15 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :item_users
-- has_many :users, through: item_users
-- has_many :purchase
+- has_one :items
+- has_one :users, through: item_users
+- has_one :purchase
 
 ## purchaseテーブル
 
 | Column        | Type       | Options                        |
 | ------        | ---------- | ------------------------------ |
-| user_id       | references | null: false, foreign_key: true |
-| cust_address  | string     | null: false, foreign_key: true |                                       
-| phone_number  | string     | null: false, foreign_key: true |
+| user_id       | references | null: false, foreign_key: true |                       
 
 ### Association
 
