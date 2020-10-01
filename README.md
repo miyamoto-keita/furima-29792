@@ -41,7 +41,7 @@ Things you may want to cover:
 
 
 ### Association
-
+- has_one :users, through: item_users
 - has_many :purchase
 
 ## items テーブル
@@ -50,7 +50,7 @@ Things you may want to cover:
 | ------     | ------     | ----------- |
 | name       | string     | null: false |
 |user        | references | null: false |
-|price       | intebger   | null: false |
+|price       | integer   | null: false |
 |text        | string     | null: false |
 |detail      | string     | null: false |
 |delivery    | string     | null: false |
