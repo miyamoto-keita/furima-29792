@@ -51,11 +51,11 @@ Things you may want to cover:
 | name            | string     | null: false |
 | user            | references | null: false |
 | price           | integer    | null: false |
-| text            | string     | null: false |
-| category        | string     | null: false |
-| status          | string     | null: false |
+| description     | text       | null: false |
+| category        | integer    | null: false |
+| status          | integer    | null: false |
 | delivery_charge | integer    | null: false |
-| area            | string     | null: false |
+| area            | integer    | null: false |
 | delivery_date   | integer    | null: false |
 
 
@@ -75,17 +75,17 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one    :address
 
 ### address
 
 | Column        | Type       | Options                        |
 | ------        | ---------- | ------------------------------ |
 | postcode      | string     | null: false                    |
-| prefectures   | string     | null: false                    |
+| prefectures   | integer    | null: false                    |
 | city          | string     | null: false                    |
 | block         | string     | null: false                    |
-| building_name | string     | null: false                    |
+| building_name | string     |                                |
 | phone_number  | string     | null: false                    |
 | purchase      | references | null: false, foreign_key: true |
 
