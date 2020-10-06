@@ -8,7 +8,7 @@ FactoryBot.define do
     birth_date{"1930-01-01"}
     cust_first_name{"太郎"}
     cust_last_name{"田中"}
-    first_name{"cc"}
-    last_name{"dd"}
+    first_name{"タロウ"}
+    last_name{"タナカ"}
   end
 end
