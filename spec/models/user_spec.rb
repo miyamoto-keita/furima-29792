@@ -22,6 +22,13 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include("Email can't be blank")
     end
 
+    it "emailは@がないと登録できないこと" do
+      @user.email = "sample"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email is invalid")
+    end
+
+
     it "passwordが空では登録できないこと" do
       @user.password = ""
         @user.valid?
@@ -51,6 +58,18 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Cust last name can't be blank")
     end
+
+    it 'cust_first_nameが全角日本語でないと保存できないこと' do
+    @user.cust_first_name = "tarou"
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Cust first name is invalid")
+    end
+
+    it 'cust_last_nameが全角日本語でないと保存できないこと' do
+      @user.cust_last_name = "satou"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Cust last name is invalid")
+      end
 
     it "first_nameがカタカナでないと登録できないこと" do
       @user.first_name = "たろう"
