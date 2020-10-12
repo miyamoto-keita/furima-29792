@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
-    @items = Item.all
+    @items = Item.order(id: :DESC)
   end
 
   def new
@@ -14,9 +14,7 @@ class ItemsController < ApplicationController
       @item.save
       redirect_to action: :index
     else
-      # binding.pry
       render 'new'
-      # render action: :new
     end
   end
 
