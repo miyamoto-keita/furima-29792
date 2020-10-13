@@ -20,12 +20,16 @@ class ItemsController < ApplicationController
     else
       render 'new'
     end
+  end
 
-    def edit
-    end
+  def edit
+  end
 
-    def update
-      @item.update(item_params)
+  def update
+    if @item.update(item_params)
+      redirect_to action: :show
+    else
+      render 'edit'
     end
   end
 
@@ -38,5 +42,4 @@ class ItemsController < ApplicationController
   def set_user
     @item = Item.find(params[:id])
   end
-
 end
