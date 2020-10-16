@@ -1,5 +1,6 @@
 class PurchaseController < ApplicationController
   before_action :item_set, only: [:index,:create]
+  before_action :authenticate_user!
   def create
     
     @purchase_address = PurchaseAddress.new(purchase_params)

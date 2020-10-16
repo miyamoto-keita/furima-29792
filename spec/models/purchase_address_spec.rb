@@ -56,5 +56,10 @@ it 'phone_numberが12桁以上だと購入できない' do
   @purchase_address.valid?
   expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
 end
+it 'tokenが空だと保存できないこと' do
+  @purchase_address.token = nil
+  @purchase_address.valid?
+  expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
+end
 end
 end

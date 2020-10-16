@@ -5,6 +5,7 @@ FactoryBot.define do
     city { 2 }
     block { '1-1' }
     phone_number {'00000000000'}
+    token {'aaaaaaaaaaaa'}
 
   end
 end

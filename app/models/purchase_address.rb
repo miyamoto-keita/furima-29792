@@ -9,6 +9,7 @@ class PurchaseAddress
     validates :city
     validates :block
     validates :phone_number
+    validates :token
   end
 
   validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
