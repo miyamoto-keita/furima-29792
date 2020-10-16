@@ -60,10 +60,12 @@ gem 'pry-rails'
 gem 'active_hash'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+gem 'payjp'
 
 group :development do
   gem 'rubocop', require: false
 end
 group :production do
   gem 'rails_12factor'
+  
 end
