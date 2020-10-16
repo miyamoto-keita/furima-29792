@@ -1,9 +1,10 @@
 class PurchaseController < ApplicationController
+  before_action :item_set, only: [:index,:create]
   def create
-    @item = Item.find(params[:item_id])
+    
     @purchase_address = PurchaseAddress.new(purchase_params)
     if @purchase_address.valid?
-      Payjp.api_key = "sk_test_b569733ee02d592036c63273"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(
         amount: @item.price,  # 商品の値段
         card: purchase_params[:token],    # カードトークン
@@ -19,7 +20,7 @@ class PurchaseController < ApplicationController
 
   def index
     @purchase_address = PurchaseAddress.new
-    @item = Item.find(params[:item_id])
+    
   end
 
 
@@ -27,5 +28,7 @@ class PurchaseController < ApplicationController
    def purchase_params
      params.require(:purchase_address).permit(:postcode, :area_id, :city, :block, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id],token: params[:token])
    end
-
+   def item_set
+    @item = Item.find(params[:item_id])
+end
 end

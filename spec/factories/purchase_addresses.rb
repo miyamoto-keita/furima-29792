@@ -4,7 +4,7 @@ FactoryBot.define do
     area_id { 2 }
     city { 2 }
     block { '1-1' }
-    phone_number {00000000000}
+    phone_number {'00000000000'}
 
   end
 end

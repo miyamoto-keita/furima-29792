@@ -6,8 +6,8 @@ RSpec.describe PurchaseAddress, type: :model do
     @purchase_address = FactoryBot.build(:purchase_address)
 end
 
-it 'すべての値が正しく入力されていれば保存できること' do
-  expect(@purchase_address).to be_valid
+ it 'すべての値が正しく入力されていれば保存できること' do
+   expect(@purchase_address).to be_valid
 end
 it 'postcodeが空だと保存できないこと' do
   @purchase_address.postcode = nil
@@ -34,10 +34,10 @@ it 'blockが空だと保存できないこと' do
   @purchase_address.valid?
   expect(@purchase_address.errors.full_messages).to include("Block can't be blank")
 end
-it 'building_nameは空でも保存できること' do
+ it 'building_nameは空でも保存できること' do
   @purchase_address.building_name = nil
-  expect(@purchase_address).to be_valid
-end
+     expect(@purchase_address).to be_valid
+ end
 
 it 'phone_numberが空だと保存できないこと' do
   @purchase_address.phone_number = nil
@@ -48,7 +48,13 @@ end
 it 'phone_numberがハイフンなしでないと登録できないこと' do
   @purchase_address.phone_number = '000-0000-0000'
   @purchase_address.valid?
-  expect(@purchase_address.errors.full_messages).to include("Phone number is not a number")
+  expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
+end
+
+it 'phone_numberが12桁以上だと購入できない' do
+  @purchase_address.phone_number = '000000000000'
+  @purchase_address.valid?
+  expect(@purchase_address.errors.full_messages).to include("Phone number is invalid")
 end
 end
 end
