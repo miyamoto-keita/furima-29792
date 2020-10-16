@@ -1,6 +1,6 @@
-class PurchaseController < ApplicationController
-  before_action :item_set, only: [:index,:create]
+class PurchasesController < ApplicationController
   before_action :authenticate_user!
+  before_action :item_set, only: [:index,:create]
   def create
     
     @purchase_address = PurchaseAddress.new(purchase_params)
@@ -31,5 +31,6 @@ class PurchaseController < ApplicationController
    end
    def item_set
     @item = Item.find(params[:item_id])
-end
+   end
+   
 end
