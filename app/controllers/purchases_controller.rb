@@ -28,7 +28,7 @@ class PurchasesController < ApplicationController
   def purchase_myitem
     @item = Item.find(params[:item_id])
     redirect_to root_path unless @item.user != current_user
-
+    redirect_to root_path if @item.purchase
   end
    private
    def purchase_params
